@@ -20,7 +20,6 @@ load_dotenv()
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings('ignore')
 
-# Function to load and process PDF
 def load_pdf(file_path: str) -> List[Document]:
     try:
         loader = PyPDFLoader(file_path)
@@ -33,11 +32,10 @@ def load_pdf(file_path: str) -> List[Document]:
         st.error(f"Error loading PDF: {e}")
         return []
 
-# Function to load and process URL
 def load_url(url: str) -> List[Document]:
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Check if the request was successful
+        response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
         content = soup.get_text()
 
@@ -54,10 +52,8 @@ def load_url(url: str) -> List[Document]:
         st.error(f"Error loading content from URL {url}: {e}")
         return []
 
-# Function to load and process Excel or CSV files
 def load_excel(file_path: str) -> List[Document]:
     try:
-        # Use pandas to read Excel or CSV
         if file_path.endswith('.csv'):
             df = pd.read_csv(file_path)
         elif file_path.endswith('.xlsx'):
@@ -66,14 +62,13 @@ def load_excel(file_path: str) -> List[Document]:
             st.error(f"Unsupported file format: {file_path}")
             return []
 
-        content = df.to_string(index=False)  # Convert the dataframe to a string
+        content = df.to_string(index=False) 
         document = Document(page_content=content, metadata={"source": file_path})
         return [document]
     except Exception as e:
         st.error(f"Error processing Excel/CSV: {e}")
         return []
 
-# Function to split documents into chunks
 def split_documents(documents: List[Document], chunk_size: int = 500, chunk_overlap: int = 100) -> List[Document]:
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
@@ -82,7 +77,6 @@ def split_documents(documents: List[Document], chunk_size: int = 500, chunk_over
     )
     return text_splitter.split_documents(documents)
 
-# Function to create a vector store using FAISS
 def create_vector_store(documents: List[Document], embedding_model: str = 'sentence-transformers/all-MiniLM-L6-v2'):
     try:
         embeddings = HuggingFaceEmbeddings(model_name=embedding_model)
@@ -96,7 +90,6 @@ def create_vector_store(documents: List[Document], embedding_model: str = 'sente
         st.error(f"Error creating vector store: {e}")
         return None
 
-# Function to load the existing vector store from a file
 def load_vector_store():
     try:
         with open("faiss_vector_store.pkl", "rb") as f:
@@ -105,7 +98,6 @@ def load_vector_store():
     except FileNotFoundError:
         return None
 
-# Function to create the question-answering chain
 def create_qa_chain(vector_store):
     try:
         llm = ChatGroq(
@@ -115,7 +107,7 @@ def create_qa_chain(vector_store):
         )
         retriever = vector_store.as_retriever(
             search_type="similarity",
-            search_kwargs={"k": 5}  # Return top 5 similar documents
+            search_kwargs={"k": 5} 
         )
         return RetrievalQA.from_chain_type(
             llm=llm,
@@ -133,7 +125,6 @@ class DocumentProcessor:
         self.qa_chain = None
         self.processed_files = []
     
-    # Process PDFs, URLs, and Excel files
     def process_documents(self, file_paths: List[str], url: str = ""):
         all_documents = []
         if url:
@@ -181,7 +172,6 @@ class DocumentProcessor:
         else:
             st.warning("No valid documents found for processing.")
     
-    # Query the processed documents
     def query_documents(self, query: str):
         if not self.qa_chain:
             return "Please process documents first.", []
@@ -206,19 +196,13 @@ def main():
     
     document_processor = st.session_state.document_processor
     file_paths = [
-        # ".\Documents\\ak1.xlsx",  # Path to your Excel file
-        # ".\Documents\\Zoho Resume Manjineshwaran.pdf",  # Path to your PDF file
-        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/ak1.xlsx",  # URL to your Excel file
-        #"https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/ak1.xlsx",
-        #"https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf"
+        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/ak1.xlsx", 
     ]
     
-    # URL to be processed
     url = "https://brainlox.com/courses/category/technical"
 
     document_processor.process_documents(file_paths, url)
     
-    # Query Section
     query = st.text_input("Ask a Question", "")
     if st.button("Submit Query"):
         if query.strip():
