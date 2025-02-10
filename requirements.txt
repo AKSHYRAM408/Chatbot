@@ -1,0 +1,11 @@
+streamlit==1.42.0
+python-dotenv==1.0.1
+langchain==0.3.18
+langchain-community==0.3.17
+langchain-groq==0.2.4
+huggingface_hub==0.28.1
+chromadb==0.6.3
+requests==2.32.3
+pypdf==5.2.0
+sentence-transformers==3.4.1
+faiss-cpu==1.10.0
