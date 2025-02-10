@@ -227,7 +227,7 @@ def main():
     # URL to be processed
     url = "https://brainlox.com/courses/category/technical"
 
-    document_processor.process_documents('https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf', url)
+    document_processor.process_documents(file_paths, url)
     
     # Query Section
     query = st.text_input("Ask a Question", "")
