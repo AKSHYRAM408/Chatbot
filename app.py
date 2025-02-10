@@ -196,10 +196,11 @@ def main():
     
     document_processor = st.session_state.document_processor
     file_paths = [
+        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/aks.pdf",
         "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/ak1.xlsx", 
         "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/ResumeManjineshwaran.pdf", 
-        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/Ads_data.xlsx"
-        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/aks.pdf"
+        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/Ads_data.xlsx",
+        
         
     ]
     
