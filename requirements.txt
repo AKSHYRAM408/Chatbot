@@ -9,3 +9,4 @@ requests==2.32.3
 pypdf==5.2.0
 sentence-transformers==3.4.1
 faiss-cpu==1.10.0
+beautifulsoup4==4.13.3
