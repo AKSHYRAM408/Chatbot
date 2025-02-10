@@ -206,16 +206,16 @@ def main():
     
     document_processor = st.session_state.document_processor
 # getting file from github
-    url = 'https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf'  # replace with actual URL of the raw PDF file
-    response = requests.get(url)
-    with open('filename.pdf', 'wb') as file:
-        file.write(response.content)
-    def extract_text_from_pdf(file_path):
-        with pdfplumber.open(file_path) as pdf:
-            text = ""
-            for page in pdf.pages:
-                text += page.extract_text() + "\n"
-            return text
+    # url = 'https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf'  # replace with actual URL of the raw PDF file
+    # response = requests.get(url)
+    # with open('filename.pdf', 'wb') as file:
+    #     file.write(response.content)
+    # def extract_text_from_pdf(file_path):
+    #     with pdfplumber.open(file_path) as pdf:
+    #         text = ""
+    #         for page in pdf.pages:
+    #             text += page.extract_text() + "\n"
+    #         return text
     # Define the file paths you want to process
     file_paths = [
         # ".\Documents\\ak1.xlsx",  # Path to your Excel file
@@ -227,7 +227,7 @@ def main():
     # URL to be processed
     url = "https://brainlox.com/courses/category/technical"
 
-    document_processor.process_documents(extract_text_from_pdf('filename.pdf'), url)
+    document_processor.process_documents('https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf', url)
     
     # Query Section
     query = st.text_input("Ask a Question", "")
