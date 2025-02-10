@@ -208,8 +208,8 @@ def main():
 
     # Define the file paths you want to process
     file_paths = [
-        "C:\\Users\\Dell\\Downloads\\ak1.xlsx",  # Path to your Excel file
-        "C:\\Users\\Dell\\Downloads\\Full Stack (1).pdf",  # Path to your PDF file
+        "Documents\\ak1.xlsx",  # Path to your Excel file
+        "Documents\\Zoho Resume Manjineshwaran.pdf",  # Path to your PDF file
     ]
     
     # URL to be processed
