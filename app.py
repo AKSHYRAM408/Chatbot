@@ -205,22 +205,10 @@ def main():
         st.session_state.document_processor = DocumentProcessor()
     
     document_processor = st.session_state.document_processor
-# getting file from github
-    url = 'https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf'  # replace with actual URL of the raw PDF file
-    response = requests.get(url)
-    with open('filename.pdf', 'wb') as file:
-        file.write(response.content)
-    # def extract_text_from_pdf(file_path):
-    #     with pdfplumber.open(file_path) as pdf:
-    #         text = ""
-    #         for page in pdf.pages:
-    #             text += page.extract_text() + "\n"
-    #         return text
-    # Define the file paths you want to process
     file_paths = [
         # ".\Documents\\ak1.xlsx",  # Path to your Excel file
         # ".\Documents\\Zoho Resume Manjineshwaran.pdf",  # Path to your PDF file
-        "\\filename.pdf",
+        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/ak1.xlsx",  # URL to your Excel file
         #"https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/ak1.xlsx",
         #"https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf"
     ]
