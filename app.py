@@ -220,7 +220,7 @@ def main():
     file_paths = [
         # ".\Documents\\ak1.xlsx",  # Path to your Excel file
         # ".\Documents\\Zoho Resume Manjineshwaran.pdf",  # Path to your PDF file
-        "https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/ak1.xlsx",
+        #"https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/ak1.xlsx",
         "https://github.com/AKSHYRAM408/Chatbot/blob/main/Documents/Zoho%20Resume%20Manjineshwaran.pdf"
     ]
     
