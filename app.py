@@ -198,6 +198,7 @@ def main():
     file_paths = [
         "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/ak1.xlsx", 
         "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/ResumeManjineshwaran.pdf", 
+        "https://raw.githubusercontent.com/AKSHYRAM408/chatbot/main/Documents/Ads_data.xlsx"
         
     ]
     
