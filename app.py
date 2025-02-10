@@ -203,7 +203,7 @@ def main():
         
     ]
     
-    url = "https://brainlox.com/courses/category/technical"
+    url = "https://stjosephstechnology.ac.in/home/"
 
     document_processor.process_documents(file_paths, url)
     
