@@ -188,7 +188,7 @@ class DocumentProcessor:
             return f"Error processing query: {e}", []
 
 def main():
-    st.title("Akshy's AI Assisstant")
+    st.title("ADS's AI Chatbot")
     st.markdown("### Search for Details of students.")
 
     if "document_processor" not in st.session_state:
