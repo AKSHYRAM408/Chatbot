@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import pickle
 import io
 import requests
+import numpy as np
 import pandas as pd
 from langchain.document_loaders import PyPDFLoader
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
@@ -228,4 +229,5 @@ print("Sjit")
 print("Sjit")
 print("Sjit")
 print("helo")
+
 
