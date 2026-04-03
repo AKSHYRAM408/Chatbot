@@ -6,6 +6,7 @@ from typing import List
 from dotenv import load_dotenv
 import pickle
 import io
+
 import requests
 import numpy as np
 import pandas as pd
@@ -60,6 +61,7 @@ def load_excel(file_path: str) -> List[Document]:
             df = pd.read_csv(file_path)
         elif file_path.endswith('.xlsx'):
             df = pd.read_excel(file_path, engine='openpyxl')
+            
         else:
             st.error(f"Unsupported file format: {file_path}")
             return []
