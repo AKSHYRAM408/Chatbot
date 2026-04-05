@@ -93,6 +93,7 @@ def create_vector_store(documents: List[Document], embedding_model: str = 'sente
     except Exception as e:
         st.error(f"Error creating vector store: {e}")
         return None
+        
 
 def load_vector_store():
     try:
@@ -122,6 +123,7 @@ def create_qa_chain(vector_store):
     except Exception as e:
         st.error(f"Error creating QA chain: {e}")
         return None
+
 
 class DocumentProcessor:
     def __init__(self):
